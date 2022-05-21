@@ -17,6 +17,24 @@ class Product with ChangeNotifier {
     this.isFavorite = false,
   });
 
+  Product copyWith({
+    String? id,
+    String? title,
+    String? description,
+    String? imageUrl,
+    double? price,
+    bool? isFavorite,
+  }) {
+    return Product(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      imageUrl: imageUrl ?? this.imageUrl,
+      price: price ?? this.price,
+      isFavorite: isFavorite ?? this.isFavorite,
+    );
+  }
+
   void toggleFavoriteStatus() {
     isFavorite = !isFavorite;
     notifyListeners();
